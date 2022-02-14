@@ -1,4 +1,8 @@
 
+from mpl_toolkits import mplot3d
+import numpy as np
+import matplotlib.pyplot as plt
+
 def PartialDerivativeX(x,y):
 
     return ((2*x*y)-(y**2))
@@ -14,6 +18,10 @@ def calculateGradient(xCor,yCor):
     vector[1] = PartialDerivativeY(xCor, yCor)
     return vector
 
+# function for z axea
+def f(x, y):
+    return ((x ** 2 *y) - (x * y ** 2 ))
+
 if __name__ == '__main__':
 
     print("The function that will be use is: f(x,y) = x²y - xy²")
@@ -22,14 +30,14 @@ if __name__ == '__main__':
 
     while(True):
         print("Enter the numeric value for the x axis")
-        xCor = input()
+        xCor = "4"# input()
         if xCor.isnumeric():
             break
         print("Not valid entrance")
 
     while(True):
         print("Enter the numeric value for the y axis")
-        yCor = input()
+        yCor = "4"#input()
         if yCor.isnumeric():
             break
         print("Not valid entrance!!")
@@ -40,3 +48,16 @@ if __name__ == '__main__':
     print()
     print("The gradient at the coordinates (" + xCor + " , " + yCor+ ") is:")
     print(ans)
+
+    # x and y axis
+    x = np.linspace(-1, 5, 10)
+    y = np.linspace(-1, 5, 10)
+
+    X, Y = np.meshgrid(x, y)
+    Z = f(X, Y)
+
+    fig = plt.figure()
+    ax = plt.axes(projection='3d')
+    ax.plot_wireframe(X, Y, Z, color='green')
+    ax.set_title('f(x,y) = x²y - xy²')
+    plt.show()
