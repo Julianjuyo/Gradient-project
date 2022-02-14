@@ -1,44 +1,42 @@
-# This is a sample Python script.
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+def PartialDerivativeX(x,y):
 
+    return ((2*x*y)-(y**2))
 
-def calculateGradient(name):
-    # Use a breakpoint in the code line below to debug your script.
+def PartialDerivativeY(x,y):
+    return ((x**2)-(2*x*y))
 
+def calculateGradient(xCor,yCor):
+    xCor = int(xCor)
+    yCor = int(yCor)
+    vector = [1,2]
+    vector[0] = PartialDerivativeX(xCor,yCor)
+    vector[1] = PartialDerivativeY(xCor, yCor)
+    return vector
 
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
 
-    print()
     print("The function that will be use is: f(x,y) = x²y - xy²")
-    print()
     print("Write the coordinates of the plane.")
     print()
 
     while(True):
         print("Enter the numeric value for the x axis")
-        x = input()
-        if x.isnumeric():
+        xCor = "2" #input()
+        if xCor.isnumeric():
             break
         print("Not valid entrance")
 
     while(True):
         print("Enter the numeric value for the y axis")
-        y = input()
-        if y.isnumeric():
+        yCor = "4" #input()
+        if yCor.isnumeric():
             break
         print("Not valid entrance!!")
 
-    #function = ((x^2*y) - (x*y^2))
+    print("the coordinates in x,y are: (" + xCor + " , " + yCor+")")
 
-
-    print("the coordinates in x,y are: "+ x +" , "+ y)
-
-
-    #calculateGradient(input)
-
+    ans = calculateGradient(xCor,yCor)
+    print()
+    print("The gradient at the coordinates (" + xCor + " , " + yCor+ ") is:")
+    print(ans)
