@@ -22,14 +22,14 @@ if __name__ == '__main__':
 
     while(True):
         print("Enter the numeric value for the x axis")
-        xCor = "2" #input()
+        xCor = input()
         if xCor.isnumeric():
             break
         print("Not valid entrance")
 
     while(True):
         print("Enter the numeric value for the y axis")
-        yCor = "4" #input()
+        yCor = input()
         if yCor.isnumeric():
             break
         print("Not valid entrance!!")
